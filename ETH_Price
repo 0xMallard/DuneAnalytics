@@ -1,8 +1,8 @@
-SELECT 
-     minute
-     , price
-FROM 
-    prices.layer1_usd
-WHERE symbol = 'ETH'
-ORDER BY minute DESC
-LIMIT 1
+-- ETH Price
+
+SELECT
+     DATE_TRUNC('day',minute) AS Time
+     , AVG(price) AS Price
+FROM prices.usd
+WHERE symbol='ETH' AND DATE_TRUNC('day',minute)>=2020)
+GROUP BY Time
